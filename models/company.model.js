@@ -5,6 +5,7 @@ const companySchema = new mongoose.Schema(
     name: {
       type: String,
       required: true,
+      unique: true,
     },
     website: {
       type: String,
@@ -19,7 +20,7 @@ const companySchema = new mongoose.Schema(
       type: String,
       default: "",
     },
-    userID: {
+    userId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       required: true,
