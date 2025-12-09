@@ -106,7 +106,7 @@ export const getJobById = async (req, res) => {
       .populate("category");
     if (!job) {
       return res.status(404).json({
-        message: "Job not found",
+        message: error.message,
         success: false,
       });
     }
@@ -116,7 +116,7 @@ export const getJobById = async (req, res) => {
       job,
     });
   } catch (error) {
-    res.status(500).json({ message: "Internal Server Error" });
+    res.status(500).json({ message: error.message });
   }
 };
 
