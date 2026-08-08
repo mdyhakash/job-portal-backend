@@ -55,6 +55,7 @@ export const ModelName = {
   Company: 'Company',
   JobCategory: 'JobCategory',
   Job: 'Job',
+  Profile: 'Profile',
   User: 'User'
 } as const
 
@@ -131,20 +132,35 @@ export const JobScalarFieldEnum = {
 export type JobScalarFieldEnum = (typeof JobScalarFieldEnum)[keyof typeof JobScalarFieldEnum]
 
 
+export const ProfileScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  profilePhoto: 'profilePhoto',
+  bio: 'bio',
+  skills: 'skills',
+  experience: 'experience',
+  education: 'education',
+  resume: 'resume',
+  resumeOriginalName: 'resumeOriginalName',
+  location: 'location',
+  jobTitle: 'jobTitle',
+  linkedin: 'linkedin',
+  github: 'github',
+  portfolio: 'portfolio',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ProfileScalarFieldEnum = (typeof ProfileScalarFieldEnum)[keyof typeof ProfileScalarFieldEnum]
+
+
 export const UserScalarFieldEnum = {
   id: 'id',
   name: 'name',
   email: 'email',
-  phoneNumber: 'phoneNumber',
+  phone: 'phone',
   password: 'password',
   role: 'role',
-  bio: 'bio',
-  photo: 'photo',
-  skills: 'skills',
-  resume: 'resume',
-  resumeOriginalName: 'resumeOriginalName',
-  experience: 'experience',
-  education: 'education',
   companyId: 'companyId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'

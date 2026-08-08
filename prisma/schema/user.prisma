@@ -1,28 +1,22 @@
 model User {
-  id          String  @id @default(uuid())
+  id          String @id @default(uuid())
   name        String
-  email       String  @unique
-  phoneNumber String
+  email       String @unique
+  phone String
   password    String
   role        Role
 
-  // profile fields (flattened from the old mongoose "profile" sub-document)
-  bio                String?
-  photo              String?
-  skills             String[]
-  resume             String?
-  resumeOriginalName String?
-  experience         Int?
-  education          String?
-
-  // the company this user (as a recruiter) belongs to
+  profile Profile?
   companyId String?
-  company   Company? @relation("EmployeeCompany", fields: [companyId], references: [id])
+  company   Company? @relation("EmployeeCompany",fields: [companyId], references: [id])
 
-  // companies this user has registered/owns
-  ownedCompanies Company[]     @relation("CompanyOwner")
-  jobsPosted     Job[]         @relation("JobCreatedBy")
-  applications   Application[]
+  // Companies owned by this user
+  ownedCompanies Company[] @relation("CompanyOwner")
+
+  // Jobs posted by this user
+  jobsPosted Job[] @relation("JobCreatedBy")
+
+  applications Application[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

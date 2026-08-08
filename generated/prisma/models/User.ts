@@ -20,33 +20,17 @@ export type UserModel = runtime.Types.Result.DefaultSelection<Prisma.$UserPayloa
 
 export type AggregateUser = {
   _count: UserCountAggregateOutputType | null
-  _avg: UserAvgAggregateOutputType | null
-  _sum: UserSumAggregateOutputType | null
   _min: UserMinAggregateOutputType | null
   _max: UserMaxAggregateOutputType | null
-}
-
-export type UserAvgAggregateOutputType = {
-  experience: number | null
-}
-
-export type UserSumAggregateOutputType = {
-  experience: number | null
 }
 
 export type UserMinAggregateOutputType = {
   id: string | null
   name: string | null
   email: string | null
-  phoneNumber: string | null
+  phone: string | null
   password: string | null
   role: $Enums.Role | null
-  bio: string | null
-  photo: string | null
-  resume: string | null
-  resumeOriginalName: string | null
-  experience: number | null
-  education: string | null
   companyId: string | null
   createdAt: Date | null
   updatedAt: Date | null
@@ -56,15 +40,9 @@ export type UserMaxAggregateOutputType = {
   id: string | null
   name: string | null
   email: string | null
-  phoneNumber: string | null
+  phone: string | null
   password: string | null
   role: $Enums.Role | null
-  bio: string | null
-  photo: string | null
-  resume: string | null
-  resumeOriginalName: string | null
-  experience: number | null
-  education: string | null
   companyId: string | null
   createdAt: Date | null
   updatedAt: Date | null
@@ -74,16 +52,9 @@ export type UserCountAggregateOutputType = {
   id: number
   name: number
   email: number
-  phoneNumber: number
+  phone: number
   password: number
   role: number
-  bio: number
-  photo: number
-  skills: number
-  resume: number
-  resumeOriginalName: number
-  experience: number
-  education: number
   companyId: number
   createdAt: number
   updatedAt: number
@@ -91,27 +62,13 @@ export type UserCountAggregateOutputType = {
 }
 
 
-export type UserAvgAggregateInputType = {
-  experience?: true
-}
-
-export type UserSumAggregateInputType = {
-  experience?: true
-}
-
 export type UserMinAggregateInputType = {
   id?: true
   name?: true
   email?: true
-  phoneNumber?: true
+  phone?: true
   password?: true
   role?: true
-  bio?: true
-  photo?: true
-  resume?: true
-  resumeOriginalName?: true
-  experience?: true
-  education?: true
   companyId?: true
   createdAt?: true
   updatedAt?: true
@@ -121,15 +78,9 @@ export type UserMaxAggregateInputType = {
   id?: true
   name?: true
   email?: true
-  phoneNumber?: true
+  phone?: true
   password?: true
   role?: true
-  bio?: true
-  photo?: true
-  resume?: true
-  resumeOriginalName?: true
-  experience?: true
-  education?: true
   companyId?: true
   createdAt?: true
   updatedAt?: true
@@ -139,16 +90,9 @@ export type UserCountAggregateInputType = {
   id?: true
   name?: true
   email?: true
-  phoneNumber?: true
+  phone?: true
   password?: true
   role?: true
-  bio?: true
-  photo?: true
-  skills?: true
-  resume?: true
-  resumeOriginalName?: true
-  experience?: true
-  education?: true
   companyId?: true
   createdAt?: true
   updatedAt?: true
@@ -193,18 +137,6 @@ export type UserAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalA
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
-   * Select which fields to average
-  **/
-  _avg?: UserAvgAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
-   * Select which fields to sum
-  **/
-  _sum?: UserSumAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
    * Select which fields to find the minimum value
   **/
   _min?: UserMinAggregateInputType
@@ -235,8 +167,6 @@ export type UserGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArg
   take?: number
   skip?: number
   _count?: UserCountAggregateInputType | true
-  _avg?: UserAvgAggregateInputType
-  _sum?: UserSumAggregateInputType
   _min?: UserMinAggregateInputType
   _max?: UserMaxAggregateInputType
 }
@@ -245,22 +175,13 @@ export type UserGroupByOutputType = {
   id: string
   name: string
   email: string
-  phoneNumber: string
+  phone: string
   password: string
   role: $Enums.Role
-  bio: string | null
-  photo: string | null
-  skills: string[]
-  resume: string | null
-  resumeOriginalName: string | null
-  experience: number | null
-  education: string | null
   companyId: string | null
   createdAt: Date
   updatedAt: Date
   _count: UserCountAggregateOutputType | null
-  _avg: UserAvgAggregateOutputType | null
-  _sum: UserSumAggregateOutputType | null
   _min: UserMinAggregateOutputType | null
   _max: UserMaxAggregateOutputType | null
 }
@@ -287,19 +208,13 @@ export type UserWhereInput = {
   id?: Prisma.StringFilter<"User"> | string
   name?: Prisma.StringFilter<"User"> | string
   email?: Prisma.StringFilter<"User"> | string
-  phoneNumber?: Prisma.StringFilter<"User"> | string
+  phone?: Prisma.StringFilter<"User"> | string
   password?: Prisma.StringFilter<"User"> | string
   role?: Prisma.EnumRoleFilter<"User"> | $Enums.Role
-  bio?: Prisma.StringNullableFilter<"User"> | string | null
-  photo?: Prisma.StringNullableFilter<"User"> | string | null
-  skills?: Prisma.StringNullableListFilter<"User">
-  resume?: Prisma.StringNullableFilter<"User"> | string | null
-  resumeOriginalName?: Prisma.StringNullableFilter<"User"> | string | null
-  experience?: Prisma.IntNullableFilter<"User"> | number | null
-  education?: Prisma.StringNullableFilter<"User"> | string | null
   companyId?: Prisma.StringNullableFilter<"User"> | string | null
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
+  profile?: Prisma.XOR<Prisma.ProfileNullableScalarRelationFilter, Prisma.ProfileWhereInput> | null
   company?: Prisma.XOR<Prisma.CompanyNullableScalarRelationFilter, Prisma.CompanyWhereInput> | null
   ownedCompanies?: Prisma.CompanyListRelationFilter
   jobsPosted?: Prisma.JobListRelationFilter
@@ -310,19 +225,13 @@ export type UserOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   email?: Prisma.SortOrder
-  phoneNumber?: Prisma.SortOrder
+  phone?: Prisma.SortOrder
   password?: Prisma.SortOrder
   role?: Prisma.SortOrder
-  bio?: Prisma.SortOrderInput | Prisma.SortOrder
-  photo?: Prisma.SortOrderInput | Prisma.SortOrder
-  skills?: Prisma.SortOrder
-  resume?: Prisma.SortOrderInput | Prisma.SortOrder
-  resumeOriginalName?: Prisma.SortOrderInput | Prisma.SortOrder
-  experience?: Prisma.SortOrderInput | Prisma.SortOrder
-  education?: Prisma.SortOrderInput | Prisma.SortOrder
   companyId?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  profile?: Prisma.ProfileOrderByWithRelationInput
   company?: Prisma.CompanyOrderByWithRelationInput
   ownedCompanies?: Prisma.CompanyOrderByRelationAggregateInput
   jobsPosted?: Prisma.JobOrderByRelationAggregateInput
@@ -336,19 +245,13 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.UserWhereInput[]
   NOT?: Prisma.UserWhereInput | Prisma.UserWhereInput[]
   name?: Prisma.StringFilter<"User"> | string
-  phoneNumber?: Prisma.StringFilter<"User"> | string
+  phone?: Prisma.StringFilter<"User"> | string
   password?: Prisma.StringFilter<"User"> | string
   role?: Prisma.EnumRoleFilter<"User"> | $Enums.Role
-  bio?: Prisma.StringNullableFilter<"User"> | string | null
-  photo?: Prisma.StringNullableFilter<"User"> | string | null
-  skills?: Prisma.StringNullableListFilter<"User">
-  resume?: Prisma.StringNullableFilter<"User"> | string | null
-  resumeOriginalName?: Prisma.StringNullableFilter<"User"> | string | null
-  experience?: Prisma.IntNullableFilter<"User"> | number | null
-  education?: Prisma.StringNullableFilter<"User"> | string | null
   companyId?: Prisma.StringNullableFilter<"User"> | string | null
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
+  profile?: Prisma.XOR<Prisma.ProfileNullableScalarRelationFilter, Prisma.ProfileWhereInput> | null
   company?: Prisma.XOR<Prisma.CompanyNullableScalarRelationFilter, Prisma.CompanyWhereInput> | null
   ownedCompanies?: Prisma.CompanyListRelationFilter
   jobsPosted?: Prisma.JobListRelationFilter
@@ -359,24 +262,15 @@ export type UserOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   email?: Prisma.SortOrder
-  phoneNumber?: Prisma.SortOrder
+  phone?: Prisma.SortOrder
   password?: Prisma.SortOrder
   role?: Prisma.SortOrder
-  bio?: Prisma.SortOrderInput | Prisma.SortOrder
-  photo?: Prisma.SortOrderInput | Prisma.SortOrder
-  skills?: Prisma.SortOrder
-  resume?: Prisma.SortOrderInput | Prisma.SortOrder
-  resumeOriginalName?: Prisma.SortOrderInput | Prisma.SortOrder
-  experience?: Prisma.SortOrderInput | Prisma.SortOrder
-  education?: Prisma.SortOrderInput | Prisma.SortOrder
   companyId?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.UserCountOrderByAggregateInput
-  _avg?: Prisma.UserAvgOrderByAggregateInput
   _max?: Prisma.UserMaxOrderByAggregateInput
   _min?: Prisma.UserMinOrderByAggregateInput
-  _sum?: Prisma.UserSumOrderByAggregateInput
 }
 
 export type UserScalarWhereWithAggregatesInput = {
@@ -386,16 +280,9 @@ export type UserScalarWhereWithAggregatesInput = {
   id?: Prisma.StringWithAggregatesFilter<"User"> | string
   name?: Prisma.StringWithAggregatesFilter<"User"> | string
   email?: Prisma.StringWithAggregatesFilter<"User"> | string
-  phoneNumber?: Prisma.StringWithAggregatesFilter<"User"> | string
+  phone?: Prisma.StringWithAggregatesFilter<"User"> | string
   password?: Prisma.StringWithAggregatesFilter<"User"> | string
   role?: Prisma.EnumRoleWithAggregatesFilter<"User"> | $Enums.Role
-  bio?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
-  photo?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
-  skills?: Prisma.StringNullableListFilter<"User">
-  resume?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
-  resumeOriginalName?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
-  experience?: Prisma.IntNullableWithAggregatesFilter<"User"> | number | null
-  education?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   companyId?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
@@ -405,18 +292,12 @@ export type UserCreateInput = {
   id?: string
   name: string
   email: string
-  phoneNumber: string
+  phone: string
   password: string
   role: $Enums.Role
-  bio?: string | null
-  photo?: string | null
-  skills?: Prisma.UserCreateskillsInput | string[]
-  resume?: string | null
-  resumeOriginalName?: string | null
-  experience?: number | null
-  education?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  profile?: Prisma.ProfileCreateNestedOneWithoutUserInput
   company?: Prisma.CompanyCreateNestedOneWithoutEmployeesInput
   ownedCompanies?: Prisma.CompanyCreateNestedManyWithoutOwnerInput
   jobsPosted?: Prisma.JobCreateNestedManyWithoutCreatedByInput
@@ -427,19 +308,13 @@ export type UserUncheckedCreateInput = {
   id?: string
   name: string
   email: string
-  phoneNumber: string
+  phone: string
   password: string
   role: $Enums.Role
-  bio?: string | null
-  photo?: string | null
-  skills?: Prisma.UserCreateskillsInput | string[]
-  resume?: string | null
-  resumeOriginalName?: string | null
-  experience?: number | null
-  education?: string | null
   companyId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  profile?: Prisma.ProfileUncheckedCreateNestedOneWithoutUserInput
   ownedCompanies?: Prisma.CompanyUncheckedCreateNestedManyWithoutOwnerInput
   jobsPosted?: Prisma.JobUncheckedCreateNestedManyWithoutCreatedByInput
   applications?: Prisma.ApplicationUncheckedCreateNestedManyWithoutApplicantInput
@@ -449,18 +324,12 @@ export type UserUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
-  bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  skills?: Prisma.UserUpdateskillsInput | string[]
-  resume?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  resumeOriginalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  experience?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  education?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  profile?: Prisma.ProfileUpdateOneWithoutUserNestedInput
   company?: Prisma.CompanyUpdateOneWithoutEmployeesNestedInput
   ownedCompanies?: Prisma.CompanyUpdateManyWithoutOwnerNestedInput
   jobsPosted?: Prisma.JobUpdateManyWithoutCreatedByNestedInput
@@ -471,19 +340,13 @@ export type UserUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
-  bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  skills?: Prisma.UserUpdateskillsInput | string[]
-  resume?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  resumeOriginalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  experience?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  education?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   companyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  profile?: Prisma.ProfileUncheckedUpdateOneWithoutUserNestedInput
   ownedCompanies?: Prisma.CompanyUncheckedUpdateManyWithoutOwnerNestedInput
   jobsPosted?: Prisma.JobUncheckedUpdateManyWithoutCreatedByNestedInput
   applications?: Prisma.ApplicationUncheckedUpdateManyWithoutApplicantNestedInput
@@ -493,16 +356,9 @@ export type UserCreateManyInput = {
   id?: string
   name: string
   email: string
-  phoneNumber: string
+  phone: string
   password: string
   role: $Enums.Role
-  bio?: string | null
-  photo?: string | null
-  skills?: Prisma.UserCreateskillsInput | string[]
-  resume?: string | null
-  resumeOriginalName?: string | null
-  experience?: number | null
-  education?: string | null
   companyId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -512,16 +368,9 @@ export type UserUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
-  bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  skills?: Prisma.UserUpdateskillsInput | string[]
-  resume?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  resumeOriginalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  experience?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  education?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -530,16 +379,9 @@ export type UserUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
-  bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  skills?: Prisma.UserUpdateskillsInput | string[]
-  resume?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  resumeOriginalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  experience?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  education?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   companyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -564,38 +406,21 @@ export type UserCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   email?: Prisma.SortOrder
-  phoneNumber?: Prisma.SortOrder
+  phone?: Prisma.SortOrder
   password?: Prisma.SortOrder
   role?: Prisma.SortOrder
-  bio?: Prisma.SortOrder
-  photo?: Prisma.SortOrder
-  skills?: Prisma.SortOrder
-  resume?: Prisma.SortOrder
-  resumeOriginalName?: Prisma.SortOrder
-  experience?: Prisma.SortOrder
-  education?: Prisma.SortOrder
   companyId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
-}
-
-export type UserAvgOrderByAggregateInput = {
-  experience?: Prisma.SortOrder
 }
 
 export type UserMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   email?: Prisma.SortOrder
-  phoneNumber?: Prisma.SortOrder
+  phone?: Prisma.SortOrder
   password?: Prisma.SortOrder
   role?: Prisma.SortOrder
-  bio?: Prisma.SortOrder
-  photo?: Prisma.SortOrder
-  resume?: Prisma.SortOrder
-  resumeOriginalName?: Prisma.SortOrder
-  experience?: Prisma.SortOrder
-  education?: Prisma.SortOrder
   companyId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -605,22 +430,12 @@ export type UserMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   email?: Prisma.SortOrder
-  phoneNumber?: Prisma.SortOrder
+  phone?: Prisma.SortOrder
   password?: Prisma.SortOrder
   role?: Prisma.SortOrder
-  bio?: Prisma.SortOrder
-  photo?: Prisma.SortOrder
-  resume?: Prisma.SortOrder
-  resumeOriginalName?: Prisma.SortOrder
-  experience?: Prisma.SortOrder
-  education?: Prisma.SortOrder
   companyId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
-}
-
-export type UserSumOrderByAggregateInput = {
-  experience?: Prisma.SortOrder
 }
 
 export type UserCreateNestedOneWithoutApplicationsInput = {
@@ -707,43 +522,34 @@ export type UserUpdateOneRequiredWithoutJobsPostedNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutJobsPostedInput, Prisma.UserUpdateWithoutJobsPostedInput>, Prisma.UserUncheckedUpdateWithoutJobsPostedInput>
 }
 
-export type UserCreateskillsInput = {
-  set: string[]
+export type UserCreateNestedOneWithoutProfileInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutProfileInput, Prisma.UserUncheckedCreateWithoutProfileInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutProfileInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutProfileNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutProfileInput, Prisma.UserUncheckedCreateWithoutProfileInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutProfileInput
+  upsert?: Prisma.UserUpsertWithoutProfileInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutProfileInput, Prisma.UserUpdateWithoutProfileInput>, Prisma.UserUncheckedUpdateWithoutProfileInput>
 }
 
 export type EnumRoleFieldUpdateOperationsInput = {
   set?: $Enums.Role
 }
 
-export type UserUpdateskillsInput = {
-  set?: string[]
-  push?: string | string[]
-}
-
-export type NullableIntFieldUpdateOperationsInput = {
-  set?: number | null
-  increment?: number
-  decrement?: number
-  multiply?: number
-  divide?: number
-}
-
 export type UserCreateWithoutApplicationsInput = {
   id?: string
   name: string
   email: string
-  phoneNumber: string
+  phone: string
   password: string
   role: $Enums.Role
-  bio?: string | null
-  photo?: string | null
-  skills?: Prisma.UserCreateskillsInput | string[]
-  resume?: string | null
-  resumeOriginalName?: string | null
-  experience?: number | null
-  education?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  profile?: Prisma.ProfileCreateNestedOneWithoutUserInput
   company?: Prisma.CompanyCreateNestedOneWithoutEmployeesInput
   ownedCompanies?: Prisma.CompanyCreateNestedManyWithoutOwnerInput
   jobsPosted?: Prisma.JobCreateNestedManyWithoutCreatedByInput
@@ -753,19 +559,13 @@ export type UserUncheckedCreateWithoutApplicationsInput = {
   id?: string
   name: string
   email: string
-  phoneNumber: string
+  phone: string
   password: string
   role: $Enums.Role
-  bio?: string | null
-  photo?: string | null
-  skills?: Prisma.UserCreateskillsInput | string[]
-  resume?: string | null
-  resumeOriginalName?: string | null
-  experience?: number | null
-  education?: string | null
   companyId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  profile?: Prisma.ProfileUncheckedCreateNestedOneWithoutUserInput
   ownedCompanies?: Prisma.CompanyUncheckedCreateNestedManyWithoutOwnerInput
   jobsPosted?: Prisma.JobUncheckedCreateNestedManyWithoutCreatedByInput
 }
@@ -790,18 +590,12 @@ export type UserUpdateWithoutApplicationsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
-  bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  skills?: Prisma.UserUpdateskillsInput | string[]
-  resume?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  resumeOriginalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  experience?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  education?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  profile?: Prisma.ProfileUpdateOneWithoutUserNestedInput
   company?: Prisma.CompanyUpdateOneWithoutEmployeesNestedInput
   ownedCompanies?: Prisma.CompanyUpdateManyWithoutOwnerNestedInput
   jobsPosted?: Prisma.JobUpdateManyWithoutCreatedByNestedInput
@@ -811,19 +605,13 @@ export type UserUncheckedUpdateWithoutApplicationsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
-  bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  skills?: Prisma.UserUpdateskillsInput | string[]
-  resume?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  resumeOriginalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  experience?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  education?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   companyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  profile?: Prisma.ProfileUncheckedUpdateOneWithoutUserNestedInput
   ownedCompanies?: Prisma.CompanyUncheckedUpdateManyWithoutOwnerNestedInput
   jobsPosted?: Prisma.JobUncheckedUpdateManyWithoutCreatedByNestedInput
 }
@@ -832,18 +620,12 @@ export type UserCreateWithoutOwnedCompaniesInput = {
   id?: string
   name: string
   email: string
-  phoneNumber: string
+  phone: string
   password: string
   role: $Enums.Role
-  bio?: string | null
-  photo?: string | null
-  skills?: Prisma.UserCreateskillsInput | string[]
-  resume?: string | null
-  resumeOriginalName?: string | null
-  experience?: number | null
-  education?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  profile?: Prisma.ProfileCreateNestedOneWithoutUserInput
   company?: Prisma.CompanyCreateNestedOneWithoutEmployeesInput
   jobsPosted?: Prisma.JobCreateNestedManyWithoutCreatedByInput
   applications?: Prisma.ApplicationCreateNestedManyWithoutApplicantInput
@@ -853,19 +635,13 @@ export type UserUncheckedCreateWithoutOwnedCompaniesInput = {
   id?: string
   name: string
   email: string
-  phoneNumber: string
+  phone: string
   password: string
   role: $Enums.Role
-  bio?: string | null
-  photo?: string | null
-  skills?: Prisma.UserCreateskillsInput | string[]
-  resume?: string | null
-  resumeOriginalName?: string | null
-  experience?: number | null
-  education?: string | null
   companyId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  profile?: Prisma.ProfileUncheckedCreateNestedOneWithoutUserInput
   jobsPosted?: Prisma.JobUncheckedCreateNestedManyWithoutCreatedByInput
   applications?: Prisma.ApplicationUncheckedCreateNestedManyWithoutApplicantInput
 }
@@ -879,18 +655,12 @@ export type UserCreateWithoutCompanyInput = {
   id?: string
   name: string
   email: string
-  phoneNumber: string
+  phone: string
   password: string
   role: $Enums.Role
-  bio?: string | null
-  photo?: string | null
-  skills?: Prisma.UserCreateskillsInput | string[]
-  resume?: string | null
-  resumeOriginalName?: string | null
-  experience?: number | null
-  education?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  profile?: Prisma.ProfileCreateNestedOneWithoutUserInput
   ownedCompanies?: Prisma.CompanyCreateNestedManyWithoutOwnerInput
   jobsPosted?: Prisma.JobCreateNestedManyWithoutCreatedByInput
   applications?: Prisma.ApplicationCreateNestedManyWithoutApplicantInput
@@ -900,18 +670,12 @@ export type UserUncheckedCreateWithoutCompanyInput = {
   id?: string
   name: string
   email: string
-  phoneNumber: string
+  phone: string
   password: string
   role: $Enums.Role
-  bio?: string | null
-  photo?: string | null
-  skills?: Prisma.UserCreateskillsInput | string[]
-  resume?: string | null
-  resumeOriginalName?: string | null
-  experience?: number | null
-  education?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  profile?: Prisma.ProfileUncheckedCreateNestedOneWithoutUserInput
   ownedCompanies?: Prisma.CompanyUncheckedCreateNestedManyWithoutOwnerInput
   jobsPosted?: Prisma.JobUncheckedCreateNestedManyWithoutCreatedByInput
   applications?: Prisma.ApplicationUncheckedCreateNestedManyWithoutApplicantInput
@@ -942,18 +706,12 @@ export type UserUpdateWithoutOwnedCompaniesInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
-  bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  skills?: Prisma.UserUpdateskillsInput | string[]
-  resume?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  resumeOriginalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  experience?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  education?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  profile?: Prisma.ProfileUpdateOneWithoutUserNestedInput
   company?: Prisma.CompanyUpdateOneWithoutEmployeesNestedInput
   jobsPosted?: Prisma.JobUpdateManyWithoutCreatedByNestedInput
   applications?: Prisma.ApplicationUpdateManyWithoutApplicantNestedInput
@@ -963,19 +721,13 @@ export type UserUncheckedUpdateWithoutOwnedCompaniesInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
-  bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  skills?: Prisma.UserUpdateskillsInput | string[]
-  resume?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  resumeOriginalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  experience?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  education?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   companyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  profile?: Prisma.ProfileUncheckedUpdateOneWithoutUserNestedInput
   jobsPosted?: Prisma.JobUncheckedUpdateManyWithoutCreatedByNestedInput
   applications?: Prisma.ApplicationUncheckedUpdateManyWithoutApplicantNestedInput
 }
@@ -1003,16 +755,9 @@ export type UserScalarWhereInput = {
   id?: Prisma.StringFilter<"User"> | string
   name?: Prisma.StringFilter<"User"> | string
   email?: Prisma.StringFilter<"User"> | string
-  phoneNumber?: Prisma.StringFilter<"User"> | string
+  phone?: Prisma.StringFilter<"User"> | string
   password?: Prisma.StringFilter<"User"> | string
   role?: Prisma.EnumRoleFilter<"User"> | $Enums.Role
-  bio?: Prisma.StringNullableFilter<"User"> | string | null
-  photo?: Prisma.StringNullableFilter<"User"> | string | null
-  skills?: Prisma.StringNullableListFilter<"User">
-  resume?: Prisma.StringNullableFilter<"User"> | string | null
-  resumeOriginalName?: Prisma.StringNullableFilter<"User"> | string | null
-  experience?: Prisma.IntNullableFilter<"User"> | number | null
-  education?: Prisma.StringNullableFilter<"User"> | string | null
   companyId?: Prisma.StringNullableFilter<"User"> | string | null
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
@@ -1022,18 +767,12 @@ export type UserCreateWithoutJobsPostedInput = {
   id?: string
   name: string
   email: string
-  phoneNumber: string
+  phone: string
   password: string
   role: $Enums.Role
-  bio?: string | null
-  photo?: string | null
-  skills?: Prisma.UserCreateskillsInput | string[]
-  resume?: string | null
-  resumeOriginalName?: string | null
-  experience?: number | null
-  education?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  profile?: Prisma.ProfileCreateNestedOneWithoutUserInput
   company?: Prisma.CompanyCreateNestedOneWithoutEmployeesInput
   ownedCompanies?: Prisma.CompanyCreateNestedManyWithoutOwnerInput
   applications?: Prisma.ApplicationCreateNestedManyWithoutApplicantInput
@@ -1043,19 +782,13 @@ export type UserUncheckedCreateWithoutJobsPostedInput = {
   id?: string
   name: string
   email: string
-  phoneNumber: string
+  phone: string
   password: string
   role: $Enums.Role
-  bio?: string | null
-  photo?: string | null
-  skills?: Prisma.UserCreateskillsInput | string[]
-  resume?: string | null
-  resumeOriginalName?: string | null
-  experience?: number | null
-  education?: string | null
   companyId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  profile?: Prisma.ProfileUncheckedCreateNestedOneWithoutUserInput
   ownedCompanies?: Prisma.CompanyUncheckedCreateNestedManyWithoutOwnerInput
   applications?: Prisma.ApplicationUncheckedCreateNestedManyWithoutApplicantInput
 }
@@ -1080,18 +813,12 @@ export type UserUpdateWithoutJobsPostedInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
-  bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  skills?: Prisma.UserUpdateskillsInput | string[]
-  resume?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  resumeOriginalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  experience?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  education?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  profile?: Prisma.ProfileUpdateOneWithoutUserNestedInput
   company?: Prisma.CompanyUpdateOneWithoutEmployeesNestedInput
   ownedCompanies?: Prisma.CompanyUpdateManyWithoutOwnerNestedInput
   applications?: Prisma.ApplicationUpdateManyWithoutApplicantNestedInput
@@ -1101,20 +828,90 @@ export type UserUncheckedUpdateWithoutJobsPostedInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
-  bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  skills?: Prisma.UserUpdateskillsInput | string[]
-  resume?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  resumeOriginalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  experience?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  education?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  companyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  profile?: Prisma.ProfileUncheckedUpdateOneWithoutUserNestedInput
+  ownedCompanies?: Prisma.CompanyUncheckedUpdateManyWithoutOwnerNestedInput
+  applications?: Prisma.ApplicationUncheckedUpdateManyWithoutApplicantNestedInput
+}
+
+export type UserCreateWithoutProfileInput = {
+  id?: string
+  name: string
+  email: string
+  phone: string
+  password: string
+  role: $Enums.Role
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  company?: Prisma.CompanyCreateNestedOneWithoutEmployeesInput
+  ownedCompanies?: Prisma.CompanyCreateNestedManyWithoutOwnerInput
+  jobsPosted?: Prisma.JobCreateNestedManyWithoutCreatedByInput
+  applications?: Prisma.ApplicationCreateNestedManyWithoutApplicantInput
+}
+
+export type UserUncheckedCreateWithoutProfileInput = {
+  id?: string
+  name: string
+  email: string
+  phone: string
+  password: string
+  role: $Enums.Role
+  companyId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  ownedCompanies?: Prisma.CompanyUncheckedCreateNestedManyWithoutOwnerInput
+  jobsPosted?: Prisma.JobUncheckedCreateNestedManyWithoutCreatedByInput
+  applications?: Prisma.ApplicationUncheckedCreateNestedManyWithoutApplicantInput
+}
+
+export type UserCreateOrConnectWithoutProfileInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutProfileInput, Prisma.UserUncheckedCreateWithoutProfileInput>
+}
+
+export type UserUpsertWithoutProfileInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutProfileInput, Prisma.UserUncheckedUpdateWithoutProfileInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutProfileInput, Prisma.UserUncheckedCreateWithoutProfileInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutProfileInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutProfileInput, Prisma.UserUncheckedUpdateWithoutProfileInput>
+}
+
+export type UserUpdateWithoutProfileInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  company?: Prisma.CompanyUpdateOneWithoutEmployeesNestedInput
+  ownedCompanies?: Prisma.CompanyUpdateManyWithoutOwnerNestedInput
+  jobsPosted?: Prisma.JobUpdateManyWithoutCreatedByNestedInput
+  applications?: Prisma.ApplicationUpdateManyWithoutApplicantNestedInput
+}
+
+export type UserUncheckedUpdateWithoutProfileInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   companyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ownedCompanies?: Prisma.CompanyUncheckedUpdateManyWithoutOwnerNestedInput
+  jobsPosted?: Prisma.JobUncheckedUpdateManyWithoutCreatedByNestedInput
   applications?: Prisma.ApplicationUncheckedUpdateManyWithoutApplicantNestedInput
 }
 
@@ -1122,16 +919,9 @@ export type UserCreateManyCompanyInput = {
   id?: string
   name: string
   email: string
-  phoneNumber: string
+  phone: string
   password: string
   role: $Enums.Role
-  bio?: string | null
-  photo?: string | null
-  skills?: Prisma.UserCreateskillsInput | string[]
-  resume?: string | null
-  resumeOriginalName?: string | null
-  experience?: number | null
-  education?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -1140,18 +930,12 @@ export type UserUpdateWithoutCompanyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
-  bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  skills?: Prisma.UserUpdateskillsInput | string[]
-  resume?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  resumeOriginalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  experience?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  education?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  profile?: Prisma.ProfileUpdateOneWithoutUserNestedInput
   ownedCompanies?: Prisma.CompanyUpdateManyWithoutOwnerNestedInput
   jobsPosted?: Prisma.JobUpdateManyWithoutCreatedByNestedInput
   applications?: Prisma.ApplicationUpdateManyWithoutApplicantNestedInput
@@ -1161,18 +945,12 @@ export type UserUncheckedUpdateWithoutCompanyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
-  bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  skills?: Prisma.UserUpdateskillsInput | string[]
-  resume?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  resumeOriginalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  experience?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  education?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  profile?: Prisma.ProfileUncheckedUpdateOneWithoutUserNestedInput
   ownedCompanies?: Prisma.CompanyUncheckedUpdateManyWithoutOwnerNestedInput
   jobsPosted?: Prisma.JobUncheckedUpdateManyWithoutCreatedByNestedInput
   applications?: Prisma.ApplicationUncheckedUpdateManyWithoutApplicantNestedInput
@@ -1182,16 +960,9 @@ export type UserUncheckedUpdateManyWithoutCompanyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
-  bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  skills?: Prisma.UserUpdateskillsInput | string[]
-  resume?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  resumeOriginalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  experience?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  education?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -1249,19 +1020,13 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   id?: boolean
   name?: boolean
   email?: boolean
-  phoneNumber?: boolean
+  phone?: boolean
   password?: boolean
   role?: boolean
-  bio?: boolean
-  photo?: boolean
-  skills?: boolean
-  resume?: boolean
-  resumeOriginalName?: boolean
-  experience?: boolean
-  education?: boolean
   companyId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  profile?: boolean | Prisma.User$profileArgs<ExtArgs>
   company?: boolean | Prisma.User$companyArgs<ExtArgs>
   ownedCompanies?: boolean | Prisma.User$ownedCompaniesArgs<ExtArgs>
   jobsPosted?: boolean | Prisma.User$jobsPostedArgs<ExtArgs>
@@ -1273,16 +1038,9 @@ export type UserSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   id?: boolean
   name?: boolean
   email?: boolean
-  phoneNumber?: boolean
+  phone?: boolean
   password?: boolean
   role?: boolean
-  bio?: boolean
-  photo?: boolean
-  skills?: boolean
-  resume?: boolean
-  resumeOriginalName?: boolean
-  experience?: boolean
-  education?: boolean
   companyId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
@@ -1293,16 +1051,9 @@ export type UserSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   id?: boolean
   name?: boolean
   email?: boolean
-  phoneNumber?: boolean
+  phone?: boolean
   password?: boolean
   role?: boolean
-  bio?: boolean
-  photo?: boolean
-  skills?: boolean
-  resume?: boolean
-  resumeOriginalName?: boolean
-  experience?: boolean
-  education?: boolean
   companyId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
@@ -1313,23 +1064,17 @@ export type UserSelectScalar = {
   id?: boolean
   name?: boolean
   email?: boolean
-  phoneNumber?: boolean
+  phone?: boolean
   password?: boolean
   role?: boolean
-  bio?: boolean
-  photo?: boolean
-  skills?: boolean
-  resume?: boolean
-  resumeOriginalName?: boolean
-  experience?: boolean
-  education?: boolean
   companyId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "email" | "phoneNumber" | "password" | "role" | "bio" | "photo" | "skills" | "resume" | "resumeOriginalName" | "experience" | "education" | "companyId" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "email" | "phone" | "password" | "role" | "companyId" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  profile?: boolean | Prisma.User$profileArgs<ExtArgs>
   company?: boolean | Prisma.User$companyArgs<ExtArgs>
   ownedCompanies?: boolean | Prisma.User$ownedCompaniesArgs<ExtArgs>
   jobsPosted?: boolean | Prisma.User$jobsPostedArgs<ExtArgs>
@@ -1346,6 +1091,7 @@ export type UserIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
 export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "User"
   objects: {
+    profile: Prisma.$ProfilePayload<ExtArgs> | null
     company: Prisma.$CompanyPayload<ExtArgs> | null
     ownedCompanies: Prisma.$CompanyPayload<ExtArgs>[]
     jobsPosted: Prisma.$JobPayload<ExtArgs>[]
@@ -1355,16 +1101,9 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     id: string
     name: string
     email: string
-    phoneNumber: string
+    phone: string
     password: string
     role: $Enums.Role
-    bio: string | null
-    photo: string | null
-    skills: string[]
-    resume: string | null
-    resumeOriginalName: string | null
-    experience: number | null
-    education: string | null
     companyId: string | null
     createdAt: Date
     updatedAt: Date
@@ -1762,6 +1501,7 @@ readonly fields: UserFieldRefs;
  */
 export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
+  profile<T extends Prisma.User$profileArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$profileArgs<ExtArgs>>): Prisma.Prisma__ProfileClient<runtime.Types.Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   company<T extends Prisma.User$companyArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$companyArgs<ExtArgs>>): Prisma.Prisma__CompanyClient<runtime.Types.Result.GetResult<Prisma.$CompanyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   ownedCompanies<T extends Prisma.User$ownedCompaniesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$ownedCompaniesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CompanyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   jobsPosted<T extends Prisma.User$jobsPostedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$jobsPostedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$JobPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -1798,16 +1538,9 @@ export interface UserFieldRefs {
   readonly id: Prisma.FieldRef<"User", 'String'>
   readonly name: Prisma.FieldRef<"User", 'String'>
   readonly email: Prisma.FieldRef<"User", 'String'>
-  readonly phoneNumber: Prisma.FieldRef<"User", 'String'>
+  readonly phone: Prisma.FieldRef<"User", 'String'>
   readonly password: Prisma.FieldRef<"User", 'String'>
   readonly role: Prisma.FieldRef<"User", 'Role'>
-  readonly bio: Prisma.FieldRef<"User", 'String'>
-  readonly photo: Prisma.FieldRef<"User", 'String'>
-  readonly skills: Prisma.FieldRef<"User", 'String[]'>
-  readonly resume: Prisma.FieldRef<"User", 'String'>
-  readonly resumeOriginalName: Prisma.FieldRef<"User", 'String'>
-  readonly experience: Prisma.FieldRef<"User", 'Int'>
-  readonly education: Prisma.FieldRef<"User", 'String'>
   readonly companyId: Prisma.FieldRef<"User", 'String'>
   readonly createdAt: Prisma.FieldRef<"User", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"User", 'DateTime'>
@@ -2209,6 +1942,25 @@ export type UserDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Internal
    * Limit how many Users to delete.
    */
   limit?: number
+}
+
+/**
+ * User.profile
+ */
+export type User$profileArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Profile
+   */
+  select?: Prisma.ProfileSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Profile
+   */
+  omit?: Prisma.ProfileOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProfileInclude<ExtArgs> | null
+  where?: Prisma.ProfileWhereInput
 }
 
 /**

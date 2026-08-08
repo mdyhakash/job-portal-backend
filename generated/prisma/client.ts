@@ -62,6 +62,11 @@ export type JobCategory = Prisma.JobCategoryModel
  */
 export type Job = Prisma.JobModel
 /**
+ * Model Profile
+ * 
+ */
+export type Profile = Prisma.ProfileModel
+/**
  * Model User
  * 
  */
