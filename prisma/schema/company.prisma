@@ -1,0 +1,19 @@
+model Company {
+  id          String  @id @default(uuid())
+  name        String  @unique
+  website     String?
+  location    String?
+  description String?
+  logo        String?
+
+  userId String
+  owner  User   @relation("CompanyOwner", fields: [userId], references: [id], onDelete: Cascade)
+
+  employees User[] @relation("EmployeeCompany")
+  jobs      Job[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("companies")
+}

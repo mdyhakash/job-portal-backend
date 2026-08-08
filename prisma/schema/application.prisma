@@ -1,0 +1,16 @@
+model Application {
+  id          String            @id @default(uuid())
+  status      ApplicationStatus @default(APPLIED)
+
+  jobId       String
+  job         Job    @relation(fields: [jobId], references: [id], onDelete: Cascade)
+
+  applicantId String
+  applicant   User   @relation(fields: [applicantId], references: [id], onDelete: Cascade)
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@unique([jobId, applicantId])
+  @@map("applications")
+}

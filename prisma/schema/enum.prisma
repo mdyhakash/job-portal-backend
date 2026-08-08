@@ -1,0 +1,11 @@
+enum Role {
+  APPLICANT
+  RECRUITER
+}
+
+enum ApplicationStatus {
+  APPLIED
+  UNDER_REVIEW
+  REJECTED
+  HIRED
+}

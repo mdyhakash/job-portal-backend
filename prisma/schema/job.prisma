@@ -1,0 +1,38 @@
+model JobCategory {
+  id        String   @id @default(uuid())
+  name      String   @unique
+  jobs      Job[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("job_categories")
+}
+
+model Job {
+  id              String   @id @default(uuid())
+  title           String
+  description     String
+  requirements    String[]
+  experienceLevel Int
+  location        String
+  salaryRange     Int
+  jobType         String
+  position        Int
+
+  categoryId      String
+  category        JobCategory @relation(fields: [categoryId], references: [id])
+
+  companyId       String
+  company         Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+
+  createdById     String
+  createdBy       User     @relation("JobCreatedBy", fields: [createdById], references: [id], onDelete: Cascade)
+
+  applications    Application[]
+
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@map("jobs")
+}
