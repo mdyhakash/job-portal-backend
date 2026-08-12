@@ -1,7 +1,9 @@
 import bcrypt from "bcryptjs";
 import { prisma } from "../../lib/prisma";
 import config from "../../config";
-import { IRegisterUser } from "./auth.interface";
+import { ILoginUser, IRegisterUser } from "./auth.interface";
+import { jwtUtils } from "../../utils/jwt";
+import { SignOptions } from "jsonwebtoken";
 
 const registerUser = async (payload: IRegisterUser) => {
   const { name, email, phone, password, role } = payload;
@@ -47,6 +49,41 @@ const registerUser = async (payload: IRegisterUser) => {
   return user;
 };
 
+const loginUser = async (payload: ILoginUser) => {
+  const { email, password } = payload;
+
+  const user = await prisma.user.findFirstOrThrow({
+    where: {
+      email,
+    },
+  });
+
+  const matchedPassword = await bcrypt.compare(password, user.password);
+  if (!matchedPassword) {
+    throw new Error("Invalid Credintials");
+  }
+  const jwtpayload = {
+    id: user.id,
+    name: user.name,
+    email: user.email,
+    role: user.role,
+  };
+
+  const accessToken = jwtUtils.createToken(
+    jwtpayload,
+    config.jwt_access_secret,
+    config.jwt_access_expires_in as SignOptions,
+  );
+  const refreshToken = jwtUtils.createToken(
+    jwtpayload,
+    config.jwt_refresh_secret,
+    config.jwt_refresh_expires_in as SignOptions,
+  );
+
+  return { accessToken, refreshToken };
+};
+
 export const authServices = {
   registerUser,
+  loginUser,
 };
